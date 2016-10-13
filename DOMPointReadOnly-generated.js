@@ -26,6 +26,7 @@
 
     static fromPoint(other) {
       other = binding.webIDL.dictionaries.DOMPointInit(other);
+
       const implReturnValue = DOMPointReadOnlyImpl.fromPoint(other);
       return binding.webIDL.implsToWrappers.DOMPointReadOnly(implReturnValue);
     }
@@ -69,7 +70,8 @@
 
       matrix = binding.webIDL.dictionaries.DOMMatrixInit(other);
 
-      return binding.webIDL.implsToWrappers.DOMPoint(this[_impl].matrixTransform(matrix));
+      const implReturnValue = this[_impl].matrixTransform(matrix);
+      return binding.webIDL.implsToWrappers.DOMPoint(implReturnValue);
     }
 
     toJSON() {
