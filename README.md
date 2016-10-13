@@ -51,6 +51,6 @@ Brand checking is currently performed via an array that contains string brands:
 if (!this[_brands].includes('DOMPointReadOnly')) {
 ```
 
-(The brands are installed by the constructor.) There are several possibly-better designs here, such as using a `Set`, using numeric brands instead of string ones.
+(The brands are installed by the constructor.) There are several possibly-better designs here, such as using a `Set`, or using numeric brands instead of string ones.
 
 One rather different possibility, which jsdom uses, is consolidating the brand-checking mechanism with the backing implementation class; that is, something brand-checks as a `DOMPointReadOnly` if and only if it has a backing implementation that is `instanceof DOMPointReadOnlyImpl`. This can be slightly messy with inheritance and Web IDL mixins, however, so I did not include it here.

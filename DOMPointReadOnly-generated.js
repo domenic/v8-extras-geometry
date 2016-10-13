@@ -13,11 +13,6 @@
   const _impl = binding.webIDL.implSymbol;
   const _brands = binding.webIDL.brandsSymbol;
 
-  const _x = v8.createPrivateSymbol('[[x]]');
-  const _y = v8.createPrivateSymbol('[[y]]');
-  const _z = v8.createPrivateSymbol('[[z]]');
-  const _w = v8.createPrivateSymbol('[[w]]');
-
   class DOMPointReadOnly {
     constructor(x = 0, y = 0, z = 0, w = 1) {
       x = binding.webIDL.conversions['unrestricted double'](x);
