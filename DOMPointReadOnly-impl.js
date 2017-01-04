@@ -26,5 +26,5 @@
 
     // No need for x/y/z/w getters; setting them as data properties in the constructor is enough.
     // The wrapper will have getters which delegate to the impl class's data properties.
-  }
+  };
 });

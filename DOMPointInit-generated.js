@@ -1,7 +1,3 @@
-// Assumptions:
-// - The stupid RegExp check in the spec is removed, see https://github.com/heycam/webidl/issues/148
-//   and https://github.com/heycam/webidl/issues/145
-//
 // Spec: https://heycam.github.io/webidl/#es-dictionary
 
 (function(global, binding, v8) {

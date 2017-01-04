@@ -17,5 +17,5 @@
     static fromPoint(other) {
       return new binding.DOMPointImpl(other.x, other.y, other.z, other.w);
     }
-  }
+  };
 });
