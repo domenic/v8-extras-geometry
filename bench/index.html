@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOMMatrix Performance Test</title>
+<!-- From https://github.com/hwanseung/DOMMatrixPerformanceTest/blob/master/index.html,
+     but a hacked-together "generated" version instead of the polyfill used there. -->
+<style type="text/css">
+  table, th, td {
+    border: 1px solid black;
+  }
+</style>
+<script src="DOMMatrixReadOnly-and-support.js"></script>
+</head>
+
+<script>
+
+function polyfillTest(time) {
+  var start = performance.now();
+  var a = new _DOMMatrixReadOnly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+  var b = new _DOMMatrixReadOnly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+
+  for(i = 0; i < time; i++) {
+    a.multiply(b);
+  }
+  var duration = performance.now() - start;
+
+  return duration + "ms";
+}
+
+function nativeTest(time) {
+  var start = performance.now();
+  var a = new DOMMatrixReadOnly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+  var b = new DOMMatrixReadOnly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+
+  for(i = 0; i < time; i++) {
+    a.multiply(b);
+  }
+  var duration = performance.now() - start;
+
+  return duration + "ms";
+}
+
+function runTest() {
+  document.getElementById("polyfill_10").innerHTML = polyfillTest(10);
+  document.getElementById("polyfill_100").innerHTML = polyfillTest(100);
+  document.getElementById("polyfill_1000").innerHTML = polyfillTest(1000);
+  document.getElementById("polyfill_10000").innerHTML = polyfillTest(10000);
+  document.getElementById("polyfill_100000").innerHTML = polyfillTest(100000);
+  //document.getElementById("polyfill_1000000").innerHTML = polyfillTest(1000000);
+
+  try {
+    document.getElementById("native_10").innerHTML = nativeTest(10);
+    document.getElementById("native_100").innerHTML = nativeTest(100);
+    document.getElementById("native_1000").innerHTML = nativeTest(1000);
+    document.getElementById("native_10000").innerHTML = nativeTest(10000);
+    document.getElementById("native_100000").innerHTML = nativeTest(100000);
+    //document.getElementById("native_1000000").innerHTML = nativeTest(1000000);
+  } catch(err) {
+    var elements = document.getElementsByClassName("native");
+    for (var i=0; i<elements.length; i++) {
+      elements[i].innerHTML = err;
+    }
+  }
+}
+
+</script>
+
+<body>
+  <h1>DOMMatrix Performance Test</h1>
+  <input type="button" value="Run Test" onclick="runTest()">
+  <br>
+  <table>
+    <tr>
+      <th>count</th>
+      <th>Polyfill</th>
+      <th>Native</th>
+    </tr>
+    <tr>
+      <th>10</th>
+      <th id="polyfill_10"></th>
+      <th id="native_10" class="native"></th>
+    </tr>
+    <tr>
+      <th>100</th>
+      <th id="polyfill_100"></th>
+      <th id="native_100" class="native"></th>
+    </tr>
+    <tr>
+      <th>1000</th>
+      <th id="polyfill_1000"></th>
+      <th id="native_1000" class="native"></th>
+    </tr>
+    <tr>
+      <th>10000</th>
+      <th id="polyfill_10000"></th>
+      <th id="native_10000" class="native"></th>
+    </tr>
+    <tr>
+      <th>100000</th>
+      <th id="polyfill_100000"></th>
+      <th id="native_100000" class="native"></th>
+    </tr>
+    <!--
+    <tr>
+      <th>1000000</th>
+      <th id="polyfill_1000000"></th>
+      <th id="native_1000000" class="native"></th>
+    </tr>
+    -->
+  </table>
+
+</body>
+
+</html>
