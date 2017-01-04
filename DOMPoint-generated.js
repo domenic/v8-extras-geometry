@@ -124,4 +124,11 @@
     configurable: true,
     value: DOMPoint
   });
+
+  Object_defineProperty(global, 'SVGPoint', {
+    writable: true,
+    enumerable: false,
+    configurable: true,
+    value: DOMPoint
+  });
 });
