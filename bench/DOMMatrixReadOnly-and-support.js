@@ -398,12 +398,12 @@ const v8 = {
 
     matrix.m33 = matrix.m44 = 1;
 
-    matrix._matrix = v8.InternalPackedArray([
+    matrix._matrix = v8.InternalPackedArray(
       numberSequence[0], numberSequence[1], 0, 0,
       numberSequence[2], numberSequence[3], 0, 0,
       0, 0, 1, 0,
       numberSequence[4], numberSequence[5], 0, 1
-    ]);
+    );
 
     matrix.is2D = true;
 
@@ -554,7 +554,7 @@ const v8 = {
                   dict.m44 === 1;
     }
 
-    return new v8.InternalPackedArray([
+    return new v8.InternalPackedArray(
       dict.m11 === undefined ? dict.a === undefined ? 1 : dict.a : dict.m11,
       dict.m12 === undefined ? dict.b === undefined ? 0 : dict.b : dict.m12,
       dict.m13,
@@ -571,7 +571,7 @@ const v8 = {
       dict.m42 === undefined ? dict.f === undefined ? 0 : dict.f : dict.m42,
       dict.m43,
       dict.m44,
-    ]);
+    );
   }
 })(window, binding, v8);
 
