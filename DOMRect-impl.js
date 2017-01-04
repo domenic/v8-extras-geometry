@@ -13,7 +13,7 @@
       this.height = height;
     }
 
-    fromRect(other) {
+    static fromRect(other) {
       return new binding.DOMRectImpl(other.x, other.y, other.width, other.height);
     }
   };

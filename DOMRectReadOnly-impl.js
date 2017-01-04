@@ -30,7 +30,7 @@
       return min(this.x, this.x + this.width);
     }
 
-    fromRect(other) {
+    static fromRect(other) {
       return new binding.DOMRectReadOnlyImpl(other.x, other.y, other.width, other.height);
     }
   };
