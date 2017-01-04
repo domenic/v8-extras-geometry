@@ -12,6 +12,8 @@ Web IDL mixins (e.g. `Element implements ChildNode`) are a bit tricky to do corr
 
 Classes that are not `[Exposed=(Window,Worker)]` need a bit more infrastructure in place to only expose in the appropriate globals. I'm not sure what that would look like yet.
 
+The `DOMMatrixReadOnly` implementation is largely a stub designed to see how `multiply()` would work. It is missing most of the "generated" code; the impl code has many TODOs; and some of the generated semantics are a bit sketchy. In particular it's not clear that the "generated" code for the overload resolution algorithm in the constructor is correct or realistic.
+
 ## Miscellaneous notes
 
 ### File execution order
@@ -23,6 +25,7 @@ This would be coded into Chrome's `.gn` files, given that we have no other way o
 - DOMPoint-impl.js
 - DOMRectReadOnly-impl.js
 - DOMRect-impl.js
+- DOMMatrixReadOnly-impl.js
 - DOMPointInit-generated.js
 - DOMRectInit-generated.js
 - DOMMatrixInit-generated.js
@@ -30,6 +33,7 @@ This would be coded into Chrome's `.gn` files, given that we have no other way o
 - DOMPoint-generated.js
 - DOMRectReadOnly-generated.js
 - DOMRect-generated.js
+- DOMMatrixReadOnly-generated.js
 
 ### Dictionaries
 

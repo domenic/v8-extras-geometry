@@ -9,6 +9,9 @@
     conversions: {
       'unrestricted double'(x) {
         return +x;
+      },
+      boolean(x) {
+        return !!x;
       }
     }
   };
