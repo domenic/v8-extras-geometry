@@ -9,6 +9,7 @@
   const TypeError = global.TypeError;
   const Object_defineProperty = global.Object.defineProperty;
   const Object_create = global.Object.create;
+  const toStringTag = global.Symbol.toStringTag;
 
   const _impl = binding.webIDL.implSymbol;
   const _brands = binding.webIDL.brandsSymbol;
@@ -87,6 +88,13 @@
       };
     }
   }
+
+  Object_defineProperty(DOMPointReadOnly.prototype, toStringTag, {
+    writable: false,
+    enumerable: false,
+    configurable: true,
+    value: 'DOMPointReadOnly'
+  });
 
   const prototype = DOMPointReadOnly.prototype;
   binding.webIDL.implsToWrappers.DOMPointReadOnly = impl => {

@@ -8,8 +8,6 @@ Inspiration for this type of "Web IDL bindings in JavaScript" can be seen in the
 
 ## What's missing
 
-We haven't shown how inheritance would work. That would be the next thing to do, by implementing `DOMPoint` (which inherits from `DOMPointReadOnly`). Past experience with jsdom shows this to be fairly easy.
-
 Web IDL mixins (e.g. `Element implements ChildNode`) are a bit tricky to do correctly as well, and might be worth exploring. The Geometry spec does not have any of those, however.
 
 Classes that are not `[Exposed=(Window,Worker)]` need a bit more infrastructure in place to only expose in the appropriate globals. I'm not sure what that would look like yet.
@@ -18,12 +16,14 @@ Classes that are not `[Exposed=(Window,Worker)]` need a bit more infrastructure 
 
 ### File execution order
 
-(This would be coded into Chrome's `.gn` files.)
+This would be coded into Chrome's `.gn` files, given that we have no other way of expressing dependencies for now, until JavaScript modules land and V8 extras support them:
 
 - web-idl-setup.js
 - DOMPointReadOnly-impl.js
+- DOMPoint-impl.js
 - DOMPointInit-generated.js
 - DOMPointReadOnly-generated.js
+- DOMPoint-generated.js
 
 ### Dictionaries
 
