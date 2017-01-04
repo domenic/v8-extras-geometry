@@ -1,0 +1,12 @@
+[Constructor(optional unrestricted double x = 0, optional unrestricted double y = 0,
+             optional unrestricted double width = 0, optional unrestricted double height = 0),
+ Exposed=(Window,Worker),
+ AliasAs=SVGRect] // implements the per-spec alias using a nonstandard extended attribute
+interface DOMRect : DOMRectReadOnly {
+    [NewObject] static DOMRect fromRect(optional DOMRectInit other);
+
+    inherit attribute unrestricted double x;
+    inherit attribute unrestricted double y;
+    inherit attribute unrestricted double width;
+    inherit attribute unrestricted double height;
+};

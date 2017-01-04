@@ -22,11 +22,13 @@ This would be coded into Chrome's `.gn` files, given that we have no other way o
 - DOMPointReadOnly-impl.js
 - DOMPoint-impl.js
 - DOMRectReadOnly-impl.js
+- DOMRect-impl.js
 - DOMPointInit-generated.js
 - DOMRectInit-generated.js
 - DOMPointReadOnly-generated.js
 - DOMPoint-generated.js
 - DOMRectReadOnly-generated.js
+- DOMRect-generated.js
 
 ### Dictionaries
 
