@@ -1,5 +1,3 @@
-// Spec: https://heycam.github.io/webidl/#es-dictionary
-
 (function(global, binding, v8) {
   'use strict';
   const undefined = global.undefined;
@@ -14,8 +12,9 @@
       x: undefined,
       y: undefined,
       width: undefined,
-      height: undefined
+      height: undefined,
     };
+
 
     const value_x = jsObj === undefined || jsObj === null ? undefined : jsObj.x;
     if (value_x !== undefined) {

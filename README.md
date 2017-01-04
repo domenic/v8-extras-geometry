@@ -2,7 +2,7 @@
 
 This is a proof-of-concept, untested implementation of some parts of the [Geometry](https://drafts.fxtf.org/geometry/) spec using [V8 extras](https://bit.ly/v8-extras).
 
-It's specifically written in a fashion that might be amenable to code generation, with the `-generated.js` files being all something that a sufficiently-smart code generator could write, and the `-impl.js` files being something a human would write.
+It's specifically written in a fashion that might be amenable to code generation, with the `-generated.js` files being all something that a sufficiently-smart code generator could write, and the `-impl.js` files being something a human would write. In some cases, the `-generated.js` files actually are generated, by the scripts in the `scripts/` directory.
 
 Inspiration for this type of "Web IDL bindings in JavaScript" can be seen in the [jsdom project](https://github.com/tmpvar/jsdom), and its [webidl2js](https://github.com/jsdom/webidl2js) library.
 
@@ -25,6 +25,7 @@ This would be coded into Chrome's `.gn` files, given that we have no other way o
 - DOMRect-impl.js
 - DOMPointInit-generated.js
 - DOMRectInit-generated.js
+- DOMMatrixInit-generated.js
 - DOMPointReadOnly-generated.js
 - DOMPoint-generated.js
 - DOMRectReadOnly-generated.js
