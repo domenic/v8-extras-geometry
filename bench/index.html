@@ -19,9 +19,26 @@ function polyfillTest(time) {
   var start = performance.now();
   var a = new _DOMMatrixReadOnly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
   var b = new _DOMMatrixReadOnly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+  var c = { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6 };
+  var d = { m11: 1, m12: 2, m21: 3, m22: 4, m23: 5 };
 
   for(i = 0; i < time; i++) {
-    a.multiply(b);
+    let rhs;
+    switch (i % 3) {
+      case 0: {
+        rhs = b;
+        break;
+      }
+      case 1: {
+        rhs = c;
+        break;
+      }
+      case 2: {
+        rhs = d;
+        break;
+      }
+    }
+    a.multiply(rhs);
   }
   var duration = performance.now() - start;
 
@@ -32,9 +49,26 @@ function nativeTest(time) {
   var start = performance.now();
   var a = new DOMMatrixReadOnly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
   var b = new DOMMatrixReadOnly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+  var c = { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6 };
+  var d = { m11: 1, m12: 2, m21: 3, m22: 4, m23: 5 };
 
   for(i = 0; i < time; i++) {
-    a.multiply(b);
+    let rhs;
+    switch (i % 3) {
+      case 0: {
+        rhs = b;
+        break;
+      }
+      case 1: {
+        rhs = c;
+        break;
+      }
+      case 2: {
+        rhs = d;
+        break;
+      }
+    }
+    a.multiply(rhs);
   }
   var duration = performance.now() - start;
 
